@@ -18,6 +18,8 @@ public class ControllerGUI extends javax.swing.JFrame {
     /**
      * Creates new form ControllerGUI
      */
+    int volume = 0;
+    
     public ControllerGUI() {
         initComponents();
     }
@@ -55,7 +57,8 @@ public class ControllerGUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         unmuteButton = new javax.swing.JButton();
         muteButton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        selectVolButton = new javax.swing.JButton();
+        volTF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,12 +80,14 @@ public class ControllerGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Select Volume");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        selectVolButton.setText("Select Volume");
+        selectVolButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                selectVolButtonActionPerformed(evt);
             }
         });
+
+        volTF.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,8 +98,11 @@ public class ControllerGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(muteButton)
                     .addComponent(unmuteButton)
-                    .addComponent(jButton3))
-                .addContainerGap(238, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(selectVolButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(volTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +112,9 @@ public class ControllerGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(unmuteButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selectVolButton)
+                    .addComponent(volTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(235, Short.MAX_VALUE))
         );
 
@@ -133,9 +143,10 @@ public class ControllerGUI extends javax.swing.JFrame {
         setOutputVolume(7.0f);//to call it. 1 is min while 7 is max. always put f
     }//GEN-LAST:event_unmuteButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void selectVolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectVolButtonActionPerformed
+        volume = Integer.parseInt(volTF.getText());
+        
+    }//GEN-LAST:event_selectVolButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,9 +184,10 @@ public class ControllerGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton muteButton;
+    private javax.swing.JButton selectVolButton;
     private javax.swing.JButton unmuteButton;
+    private javax.swing.JTextField volTF;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,5 +9,5 @@
  * @author Guest
  */
 public class Controller {
-    
+    ControllerGUI gui;
 }

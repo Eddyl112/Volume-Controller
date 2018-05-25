@@ -9,5 +9,13 @@
  * @author Guest
  */
 public class Student {
+    StudentGUI gui;
     
+    Student(StudentGUI gui) {
+        this.gui = gui;
+    }
+    
+    public void student(int volume) throws Exception {
+        
+    }
 }
